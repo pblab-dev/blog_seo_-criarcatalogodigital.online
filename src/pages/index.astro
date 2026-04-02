@@ -157,6 +157,10 @@ const secondaryColor = settings.secondaryColor || "#2563eb";
 				const websiteId = `${siteUrl}/#website`;
 				const imageId = logoUrl;
 				const webpageId = `${siteUrl}#webpage`;
+				const organizationName =
+					structured.organizationName?.trim() ||
+					structured.websiteName?.trim() ||
+					siteTitle;
 
 				const graph = {
 					"@context": "https://schema.org",
@@ -164,9 +168,24 @@ const secondaryColor = settings.secondaryColor || "#2563eb";
 						{
 							"@type": ["LocalBusiness", "Organization"],
 							"@id": orgId,
-							"name": structured.organizationName,
+							"name": organizationName,
 							"url": siteUrl,
 							"email": structured.contactEmail,
+							"telephone": structured.telephone,
+							"description": structured.description,
+							"slogan": structured.slogan,
+							"priceRange": structured.priceRange,
+							"address": {
+								"@type": "PostalAddress",
+								addressCountry: structured.addressCountry,
+								addressLocality: structured.addressLocality,
+								addressRegion: structured.addressRegion,
+							},
+							"aggregateRating": {
+								"@type": "AggregateRating",
+								ratingValue: structured.aggregateRatingValue,
+								reviewCount: structured.aggregateRatingCount,
+							},
 							"logo": {
 								"@type": "ImageObject",
 								"@id": logoId,
@@ -224,27 +243,6 @@ const secondaryColor = settings.secondaryColor || "#2563eb";
 								"@id": imageId,
 							},
 							"inLanguage": "pt-BR",
-						},
-						{
-							"@id": siteUrl,
-							"@type": "LocalBusiness",
-							"address": {
-								"@type": "PostalAddress",
-								"addressCountry": structured.addressCountry,
-								"addressLocality": structured.addressLocality,
-								"addressRegion": structured.addressRegion,
-							},
-							"aggregateRating": {
-								"@type": "AggregateRating",
-								"ratingValue": structured.aggregateRatingValue,
-								"reviewCount": structured.aggregateRatingCount,
-							},
-							"priceRange": structured.priceRange,
-							"slogan": structured.slogan,
-							"telephone": structured.telephone,
-							"description": structured.description,
-							"logo": logoUrl,
-							"image": [logoUrl],
 						},
 					],
 				};
