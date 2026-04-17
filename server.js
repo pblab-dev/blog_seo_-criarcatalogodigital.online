@@ -29,8 +29,8 @@ app.use(
 app.use(ssrHandler);
 
 app.listen(PORT, () => {
-  console.log(`🚀 blogSEO rodando em http://localhost:${PORT}`);
+  console.log(`🚀 blogSEO rodando em https://localhost:${PORT}`);
   console.log(`📁 Assets estáticos: ${join(__dirname, "dist/client")}`);
-  console.log(`🗺️  Sitemap: http://localhost:${PORT}/sitemap.xml`);
+  console.log(`🗺️  Sitemap: https://localhost:${PORT}/sitemap.xml`);
 });
 

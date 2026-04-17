@@ -35,7 +35,7 @@ Projeto base para um blog/SEO usando **Astro**, **Tailwind CSS** e **MongoDB**.
    npm run dev
    ```
 
-   A aplicação ficará disponível em `http://localhost:4321`.
+   A aplicação ficará disponível em `https://localhost:4321`.
 
 ## 🗄️ Conexão com o MongoDB
 
